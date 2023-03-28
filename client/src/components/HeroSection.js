@@ -1,9 +1,20 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const HeroSection = () => {
   return (
-    <div>HeroSection</div>
+   <Wrapper>
+     <div className='hero-section flex justify-center items-center'>
+      <h1>HeroSection</h1>
+     </div>
+   </Wrapper>
   )
 }
 
-export default HeroSection
+export default HeroSection;
+
+const Wrapper = styled.section`
+width: 100vw;
+
+`
+

@@ -4,10 +4,13 @@ import './App.css';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import ErrorPage from './components/ErrorPage';
+import { GlobalStyle } from './GlobalStyle/Globalstyle';
 import HomePage from './pages/HomePage';
 
-function App() {
+const App = () => {
   return (
+    <>
+      <GlobalStyle/>
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -18,6 +21,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </>
   );
 }
 

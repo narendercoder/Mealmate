@@ -1,9 +1,19 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const FooterPage = () => {
   return (
-    <div>footer</div>
+    <Wrapper>
+      <div className='footer-section'>
+       <div className="custom-container">
+        
+       </div>
+      </div>
+    </Wrapper>
   )
 }
 
-export default FooterPage
+export default FooterPage;
+
+const Wrapper = styled.section`
+`
