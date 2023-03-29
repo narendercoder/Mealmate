@@ -27,21 +27,21 @@ const Categories = () => {
             </div>
 
             <div className="slide-controller">
-                  <div className="swiper-button-prev slider-arrow">
-                    <GrPrevious className="arrow-back arrow-icon" />
-                  </div>
+              <div className="swiper-button-prev slider-arrow">
+                <GrPrevious className="arrow-back arrow-icon" />
+              </div>
 
-                  <div className="swiper-button-next slider-arrow ml-3">
-                    <GrNext className="arrow-right arrow-icon" />
-                  </div>
-                </div>
+              <div className="swiper-button-next slider-arrow ml-3">
+                <GrNext className="arrow-right arrow-icon" />
+              </div>
+            </div>
 
             <div className="category-list">
               <Swiper
                 modules={[Navigation, Autoplay, Pagination]}
                 spaceBetween={10}
                 autoplay={{
-                  delay: 2500
+                  delay: 2500,
                 }}
                 navigation={{
                   nextEl: ".swiper-button-next",
@@ -51,22 +51,22 @@ const Categories = () => {
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
                 breakpoints={{
-              0: {
-                slidesPerView: 2,
-              },
-              728: {
-                slidesPerView: 3,
-              },
-              1000:{
-                slidesPerView: 4,
-              },
-              1300: {
-                slidesPerView: 5,
-              },
-              1400:{
-                slidesPerView: 6,
-              }
-            }}
+                  0: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  1000: {
+                    slidesPerView: 4,
+                  },
+                  1400: {
+                    slidesPerView: 5,
+                  },
+                  1600: {
+                    slidesPerView: 6,
+                  },
+                }}
               >
                 {categories.map((item) => (
                   <SwiperSlide className="category-main mb-8">
@@ -88,15 +88,13 @@ const Categories = () => {
                     </>
                   </SwiperSlide>
                 ))}
-
-                
               </Swiper>
 
-              {/* <ul>
+              <ul>
                 {categories.map((item) => (
                   <li className="category-main">
                     <>
-                      <div className="category-img-box">
+                      <div className="category-img-box overflow-hidden rounded-full">
                         <a href="/">
                           <img src={item.img} alt="" />
                         </a>
@@ -113,9 +111,7 @@ const Categories = () => {
                     </>
                   </li>
                 ))}
-              </ul> */}
-
-
+              </ul>
             </div>
           </div>
         </div>
@@ -127,50 +123,58 @@ const Categories = () => {
 export default Categories;
 
 const Wrapper = styled.section`
+  .category-section {
+    width: 100vw;
+    height: auto;
+  }
 
-.category-section{
-  width: 100vw;
-  height: auto;
-}
-
-  .slide-controller {
-    width: 100%;
-    position: absolute;
-    top: 10%;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
-    .slider-arrow {
-      width: 5rem;
-      height: 5rem;
-      border-radius: 50%;
-      position: relative;
-      font-size: 1.5rem;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      z-index: 5;
-    }
-    .swiper-button-disabled {
-      opacity: 0;
+  @media (min-width: 768px) {
+    .category-list ul {
+      display: none;
     }
     .swiper-button-prev {
       position: absolute;
-      left: 250px;
+      left: 10%;
     }
     .swiper-button-next {
       position: absolute;
-      right: 250px;
+      right: 10%;
     }
-    .slider-arrow::after {
-      content: "";
-    }
-    .arrow-icon {
-      font-size: 2rem;
-    }
-    .swiper-pagination {
+    .slide-controller {
+      width: 100%;
+      position: absolute;
+      top: 5%;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      .slider-arrow {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        position: relative;
+        font-size: 1.5rem;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+      }
+      .swiper-button-disabled {
+        opacity: 0;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        position: absolute;
+      }
+
+      .slider-arrow::after {
+        content: "";
+      }
+      .arrow-icon {
+        font-size: 2rem;
+      }
+      /* .swiper-pagination {
         position: relative;
         display: flex;
         justify-content: center;
@@ -184,16 +188,16 @@ const Wrapper = styled.section`
           width: 1rem;
           height: 1rem;
         }
-      }
-  }
+      } */
+    }
 
-  .swiper {
-    justify-content: center;
-    align-items: center;
-    height: calc(100%);
-    width: 70vw;
-  }
-  .swiper-wrapper {
+    .swiper {
+      justify-content: center;
+      align-items: center;
+      height: calc(100%);
+      width: 75vw;
+    }
+    .swiper-wrapper {
       position: relative;
       .swiper-slide.category-main {
         display: flex;
@@ -202,12 +206,12 @@ const Wrapper = styled.section`
         align-items: center;
 
         .category-img-box {
-          width: 200px;
-          height: 200px;
+          width: 13rem;
+          height: 13rem;
           display: flex;
           justify-content: center;
           align-items: center;
-          img{
+          img {
             width: 100%;
           }
         }
@@ -219,54 +223,63 @@ const Wrapper = styled.section`
         }
       }
     }
+  }
 
-  /* .category-list  {
-    ul{
-      display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  @media (max-width: 768px) {
+    .swiper {
+      display: none;
     }
-    .category-main {
-      display: flex;
-      width: auto;
-      height: auto;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      .category-img-box {
+    .slide-controller {
+      display: none;
+    }
+    .category-list {
+      padding: 0 4rem;
+      ul {
         display: flex;
-        width: auto;
-        height: 200px;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        img {
-          width: 100%;
-        }
+        flex-wrap: wrap;
       }
-      .category-text-box {
-        position: relative;
+      .category-main {
         display: flex;
-        padding: 0px 15px;
+        width: 12rem;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-radius: 10px;
-        background-color: #fff;
-
-        .category-text-title {
-          bottom: 40px;
-          margin: 0 auto 0px;
-          text-align: center;
-        }
-        .category-text-desc {
+        .category-img-box {
           display: flex;
-          height: 50px;
-          justify-content: space-between;
-          align-items: flex-end;
+          width: 10rem;
+          height: 10rem;
           justify-content: center;
+          align-items: center;
+          img {
+            width: 100%;
+          }
+        }
+        .category-text-box {
+          position: relative;
+          display: flex;
+          padding: 0px 15px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          background-color: #fff;
+
+          .category-text-title {
+            bottom: 40px;
+            margin: 0 auto 0px;
+            text-align: center;
+          }
+          .category-text-desc {
+            display: flex;
+            height: auto;
+            justify-content: space-between;
+            align-items: flex-end;
+            justify-content: center;
+          }
         }
       }
     }
-  } */
+  }
 `;
