@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { categories } from "../data/data";
-import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
+import { GrPrevious, GrNext } from "react-icons/gr";
 
 //import swiper core and require module
 import { Navigation, Autoplay, Pagination } from "swiper";
@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 const Categories = () => {
   return (
     <Wrapper>
-      <div className="category-section w-full h-full flex justify-center items-center">
+      <div className="category-section relative flex justify-center items-center pt-20 pb-12">
         <div className="custom-container">
           <div className="wrapper flex flex-col justify-center items-center">
             <div className="sub-title">
@@ -26,21 +26,32 @@ const Categories = () => {
               <h1>Our Categories</h1>
             </div>
 
+            <div className="slide-controller">
+                  <div className="swiper-button-prev slider-arrow">
+                    <GrPrevious className="arrow-back arrow-icon" />
+                  </div>
+
+                  <div className="swiper-button-next slider-arrow ml-3">
+                    <GrNext className="arrow-right arrow-icon" />
+                  </div>
+                </div>
+
             <div className="category-list">
               <Swiper
                 modules={[Navigation, Autoplay, Pagination]}
-                spaceBetween={50}
-                // slidesPerView={6}
-                navigation
+                spaceBetween={10}
+                autoplay={{
+                  delay: 2500
+                }}
+                navigation={{
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                  clickable: true,
+                }}
                 pagination={{ clickable: true }}
                 scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log("slide change")}
                 breakpoints={{
               0: {
-                slidesPerView: 1,
-              },
-             525: {
                 slidesPerView: 2,
               },
               728: {
@@ -58,9 +69,9 @@ const Categories = () => {
             }}
               >
                 {categories.map((item) => (
-                  <SwiperSlide className="category-main">
+                  <SwiperSlide className="category-main mb-8">
                     <>
-                      <div className="category-img-box">
+                      <div className="category-img-box rounded-full overflow-hidden">
                         <a href="/">
                           <img src={item.img} alt="" />
                         </a>
@@ -78,16 +89,33 @@ const Categories = () => {
                   </SwiperSlide>
                 ))}
 
-                {/* <div className="slide-controller">
-                  <div className="swiper-button-prev slider-arrow">
-                    <BiLeftArrowAlt className="arrow-back" />
-                  </div>
-
-                  <div className="swiper-button-next slider-arrow ml-3">
-                    <BiRightArrowAlt className="arrow-right" />
-                  </div>
-                </div> */}
+                
               </Swiper>
+
+              {/* <ul>
+                {categories.map((item) => (
+                  <li className="category-main">
+                    <>
+                      <div className="category-img-box">
+                        <a href="/">
+                          <img src={item.img} alt="" />
+                        </a>
+                      </div>
+
+                      <div className="category-text-box">
+                        <div className="category-text-title">
+                          <a href="/">
+                            <h3>{item.name}</h3>
+                          </a>
+                        </div>
+                        <div className="category-text-desc mb-8"></div>
+                      </div>
+                    </>
+                  </li>
+                ))}
+              </ul> */}
+
+
             </div>
           </div>
         </div>
@@ -99,13 +127,71 @@ const Categories = () => {
 export default Categories;
 
 const Wrapper = styled.section`
+
+.category-section{
   width: 100vw;
+  height: auto;
+}
+
+  .slide-controller {
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .slider-arrow {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      position: relative;
+      font-size: 1.5rem;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      z-index: 5;
+    }
+    .swiper-button-disabled {
+      opacity: 0;
+    }
+    .swiper-button-prev {
+      position: absolute;
+      left: 250px;
+    }
+    .swiper-button-next {
+      position: absolute;
+      right: 250px;
+    }
+    .slider-arrow::after {
+      content: "";
+    }
+    .arrow-icon {
+      font-size: 2rem;
+    }
+    .swiper-pagination {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        transform: translateX(-50px);
+        position: relative;
+        width: 100px;
+
+        .swiper-pagination-bullet {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+  }
 
   .swiper {
     justify-content: center;
     align-items: center;
     height: calc(100%);
-    width: 80vw;
+    width: 70vw;
   }
   .swiper-wrapper {
       position: relative;
@@ -133,52 +219,50 @@ const Wrapper = styled.section`
         }
       }
     }
-  
 
-  /* .category-list {
-
+  /* .category-list  {
+    ul{
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    }
     .category-main {
-      margin-bottom: 30px;
+      display: flex;
+      width: auto;
+      height: auto;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       .category-img-box {
-        position: relative;
-        padding: 0px 15px;
-        z-index: 1;
-        margin-right: auto;
-        margin-bottom: -83px;
-        margin-left: auto;
         display: flex;
-        justify-content: center;
-        align-items: center;
         width: auto;
         height: 200px;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 100%;
+        }
       }
       .category-text-box {
         position: relative;
         display: flex;
-        padding: 120px 15px 15px;
+        padding: 0px 15px;
         flex-direction: column;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
         border-radius: 10px;
         background-color: #fff;
-        transition: 0.3s;
 
         .category-text-title {
-          position: absolute;
-          left: 0;
-          right: 0;
           bottom: 40px;
-          display: block;
           margin: 0 auto 0px;
-          justify-content: space-between;
           text-align: center;
         }
         .category-text-desc {
           display: flex;
           height: 50px;
-
           justify-content: space-between;
-
           align-items: flex-end;
           justify-content: center;
         }

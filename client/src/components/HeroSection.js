@@ -14,7 +14,9 @@ const HeroSection = () => {
 export default HeroSection;
 
 const Wrapper = styled.section`
-width: 100vw;
+.hero-section{
+  width: 100vw;
+}
 
 `
 

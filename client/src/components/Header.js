@@ -15,5 +15,7 @@ const Header = () => {
 export default Header;
 
 const Wrapper  = styled.section`
-width: 100vw;
+.header-section{
+  width: 100vw;
+}
 `

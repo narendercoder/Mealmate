@@ -124,6 +124,9 @@ li {
 .custom-containerr {
     max-width: 540px;
 }
+html{
+  font-size: 60%;
+}
 
 }
 
