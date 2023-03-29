@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 const Categories = () => {
   return (
     <Wrapper>
-      <div className="category-section relative flex justify-center items-center pt-20 pb-12">
+      <div className="category-section relative flex justify-center items-center py-20">
         <div className="custom-container">
           <div className="wrapper flex flex-col justify-center items-center">
             <div className="sub-title">

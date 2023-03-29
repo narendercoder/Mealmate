@@ -6,13 +6,11 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
 }
-  html{
-    font-size: 80%;
-  }
+
 
 ::-webkit-scrollbar {
     background-color: initial;
-    width: 5px;
+    width: 10px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: grey;
@@ -51,6 +49,7 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  line-height: 1.8;
 }
 
 p,span {
@@ -83,8 +82,17 @@ li {
 }
 
 
+@media (min-width: 1400px){
 
-@media (min-width: 1200px){
+.custom-container {
+  max-width: 1320px;
+}
+.category-main{
+    width: 25%;
+}
+}
+
+@media (min-width: 1200px) and (max-width: 1400px){
 
 .custom-container {
     max-width: 1140px;

@@ -4,18 +4,18 @@ import styled from 'styled-components';
 const FooterPage = () => {
   return (
     <Wrapper>
-      <div className='footer-section w-scrren'>
+      <div className='footer-section w-scrren '>
 
-        <div className="footer-content">
+        <div className="footer-content py-20">
           <div className="custom-container">
 
           </div>
         </div>
 
-        <div className="footer-copyright">
+        <div className="footer-copyright flex justify-center items-center">
           <div className="custom-container">
-            <div className="copyright text-center">
-              <p>@2023</p>
+            <div className="copyright text-center py-5">
+              <p className='text-xl'>© 2023. All rights reserved | Made with ❤️</p>
             </div>
           </div>
         </div>
