@@ -6,6 +6,7 @@ import Signup from './components/auth/Signup';
 import ErrorPage from './components/ErrorPage';
 import { GlobalStyle } from './GlobalStyle/Globalstyle';
 import HomePage from './pages/HomePage';
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -21,8 +22,13 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </div>
+    <div>
+        <div className="h-screen"></div>
+        <Footer />
+      </div>
     </>
-  );
+  )
 }
+
 
 export default App;
