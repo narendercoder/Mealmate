@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 const Categories = () => {
   return (
     <Wrapper>
-      <div className="category-section relative flex justify-center items-center py-20">
+      <div className="category-section relative flex justify-center items-center py-20 z-10">
         <div className="custom-container">
           <div className="wrapper flex flex-col justify-center items-center">
             <div className="sub-title">
@@ -143,12 +143,14 @@ const Wrapper = styled.section`
     .slide-controller {
       width: 100%;
       position: absolute;
-      top: 5%;
+      top: 0%;
       left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
+      
+      z-index: -2;
 
       .slider-arrow {
         width: 5rem;
@@ -196,6 +198,7 @@ const Wrapper = styled.section`
       align-items: center;
       height: calc(100%);
       width: 75vw;
+      z-index: -3;
     }
     .swiper-wrapper {
       position: relative;
