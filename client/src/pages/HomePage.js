@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import Categories from '../components/Categories'
 import Experience from '../components/Experience'
 import Feedback from '../components/Feedback'
-import FooterPage from '../components/FooterPage'
 import Header from '../components/Header'
 import HeroSection from '../components/HeroSection'
 import ScrollToTop from '../styles/ScrollToTop'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
   return (
@@ -17,7 +17,7 @@ const HomePage = () => {
         <Categories/>
         <Feedback/>
         <Experience/>
-        <FooterPage/>
+        <Footer/>
     </Wrapper>
   )
 }

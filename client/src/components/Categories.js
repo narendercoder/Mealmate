@@ -80,7 +80,7 @@ const Categories = () => {
                       <div className="category-text-box">
                         <div className="category-text-title">
                           <a href="/">
-                            <h3>{item.name}</h3>
+                            <h4 className="text-center">{item.name}</h4>
                           </a>
                         </div>
                         <div className="category-text-desc mb-8"></div>

@@ -8,6 +8,8 @@ import ErrorPage from './components/ErrorPage';
 import Preloader from './components/Preloader';
 import { GlobalStyle } from './GlobalStyle/Globalstyle';
 import HomePage from './pages/HomePage';
+import Footer from './components/Footer';
+
 
 const App = () => {
 
@@ -41,7 +43,6 @@ const App = () => {
     </>
     }
    </>
-  );
-}
+  )}
 
 export default App;
