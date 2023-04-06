@@ -1,13 +1,7 @@
 import {TbTruckDelivery} from "react-icons/tb"
-import {FaMoneyBillAlt} from "react-icons/fa"
-import {BiTimer} from "react-icons/bi"
+import {FaMoneyBillAlt, FaFacebookF, FaGithub, FaTwitter, FaLinkedin, FaInstagram} from "react-icons/fa"
+import {BiTimer} from "react-icons/bi";
 
-export const Intro = [
-  {
-    img: "",
-    desc: ""
-  }
-]
 
 export const RESTRAUNTS = [
     { name: "Partner with us", link: "#" },
@@ -36,11 +30,11 @@ export const RESTRAUNTS = [
   ];
   
   export const Icons = [
-    { name: "logo-facebook", link: "#" },
-    { name: "logo-twitter", link: "#" },
-    { name: "logo-github", link: "#" },
-    { name: "logo-linkedin", link: "#" },
-    { name: "logo-instagram", link: "#" },
+    { name: FaFacebookF, link: "#" },
+    { name: FaTwitter, link: "#" },
+    { name: FaGithub, link: "#" },
+    { name: FaLinkedin, link: "#" },
+    { name: FaInstagram, link: "#" },
   ];
 
   export const Promo= [
